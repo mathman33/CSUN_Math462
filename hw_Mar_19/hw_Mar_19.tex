@@ -1,0 +1,218 @@
+\documentclass[12pt]{article}
+\textwidth=17cm \oddsidemargin=-0.9cm \evensidemargin=-0.9cm
+\textheight=23.7cm \topmargin=-1.7cm
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{bigints}
+
+\newcommand{\suchthat}{\, \mid \,}
+\renewcommand{\theenumi}{\alph{enumi}}
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+\setcounter{section}{-1}
+
+\title{\bf HW: Custom Problem, Section 5A \#19, 21, Section 5C \#14, 15}
+\author{\bf Sam Fleischer}
+\date{\bf March 19, 2015}
+
+\begin{document}
+{\bf MATH 462 \hfill Advanced Linear Algebra \ \ \ \ \ \hfill Spring 2015} 
+
+{\let\newpage\relax\maketitle}
+
+\section*{Custom Problem}
+{\it Let $T \in \mathcal{L}(\mathbb{C}^2)$ by $T(z, w) = (2w, -8z)$.}
+	\begin{enumerate}[\it\ \ (a)\ \ ]
+		\item {\it Find a basis for $\mathbb{C}^2$ consisting of eigenvectors of $T$.}\\
+		
+		\noindent To find the eigenvalues, set $T(z, w) = \lambda(z, w)$.
+		\begin{align*}
+			T(z, w) &= \lambda(z, w) \\
+			\implies (2w, -8z) &= (\lambda z, \lambda w) \\
+			\implies 2w = \lambda z\text{,} \ \ \ \ &\text{and}\ \ \ \ -8z = \lambda w \\
+			\implies -8z &= \frac{\lambda^2}{2}z
+		\end{align*}
+		If $z = 0$, then $w = 0$.  Then $\lambda$ would not be an eigenvalue.  So we suppose $z \neq 0$, and thus
+		\begin{align*}
+			-8 &= \frac{\lambda^2}{2} \\
+			\implies -16 &= \lambda^2 \\
+			\implies \lambda &= \pm 4i
+		\end{align*}
+		Thus the two eigenvalues for $T$ are $4i$ and $-4i$.  To find their eigenspaces, set $T(z, w) = 4i(z, w)$ and $T(z, w) = -4i(z, w)$, respectively.  So,
+		\begin{align*}
+			T(z, w) &= 4i(z, w) \\
+			\implies (2w, -8z) &= (4iz, 4iw) \\
+			\implies w &= 2iz
+		\end{align*}
+		Thus $(1, 2i)$ is an eigenvector corresponding to $4i$.  Furthermore, $(1, 2i)$ is a basis for $E(T, 4i)$.  Also,
+		\begin{align*}
+			T(z, w) &= -4i(z, w) \\
+			\implies (2w, -8z) &= (-4iz, -4iw) \\
+			\implies w &= -2iz
+		\end{align*}
+		Thus $(1, -2i)$ is an eigenvector corresponding to $-4i$.  Furthermore, $(1, -2i)$ is a basis for $E(T, -4i)$.  Then $\pi = ((1, 2i), (1, -2i))$ is a linearly independent set since eigenvectors corresponding to different eigenvalues are linearly independent.  Since $\text{dim}(\mathbb{C}^2) = 2$ and $\text{len}(\pi) = 2$, $\pi$ is a basis for $\mathbb{C}^2$ consisting of eigenvectors of $T$.
+		\item {\it Find $\mathcal{M}(T)$ with respect to this basis.}\\
+		
+		\noindent Since
+		\begin{align*}
+			T(1, 2i) &= (2(2i), -8(1)) \\
+			&= (4i, -8) \\
+			&= 4i(1, 2i) + 0(1, -2i)
+		\end{align*}
+		and
+		\begin{align*}
+		T(1, -2i) &= (2(-2i), -8(1)) \\
+		&= (-4i, -8) \\
+		&= 0(1, 2i) -4i(1, -2i)
+		\end{align*}
+		then 
+		\begin{align*}
+			\mathcal{M}(T, \pi) = \left(\begin{array}{cc}
+				4i & 0 \\
+				0 & -4i
+			\end{array}\right)
+		\end{align*}
+	\end{enumerate}
+	
+\section*{5A}
+\subsection*{\#19}
+	{\it Suppose $n$ is a positive integer and $T \in \mathcal{L}(\mathbb{F}^n)$ is defined by}
+	\begin{align*}
+		T(x_1, \dots, x_n) = (x_1 + \dots + x_n, \dots, x_1 + \dots + x_n)
+	\end{align*}
+	{\it in other words, $T$ is the operator whose matrix (with respect to the standard basis) consists of all $1$'s.  Find the eigenvalues and eigenvectors of $T$.}\\
+	
+	\noindent To find the eigenvalues, set $T(x_1, \dots, x_n) = \lambda(x_1, \dots, x_n)$.
+	\begin{align*}
+		T(x_1, \dots, x_n) &= \lambda(x_1, \dots, x_n) \\
+		\implies (x_1 + \dots + x_n, \dots, x_1 + \dots + x_n) &= (\lambda x_1, \dots, \lambda x_n) \\
+		\implies x_1 + \dots + x_n &= \lambda x_1 = \dots = \lambda x_n\\
+		\implies \lambda &= \frac{x_1 + \dots + x_n}{x_1} = \dots = \frac{x_1 + \dots + x_n}{x_n}
+	\end{align*}
+	If $\lambda \neq 0$, then $x_1 = \dots = x_n$.  This implies $\lambda = n x_n$ is an eigenvalue and $(1, \dots, 1)$ is a basis for $E(n x_n)$.  However, if $\lambda = 0$, then the equation is true if $x_1 + \dots + x_n = 0$.  Thus $0$ is an eigenvalue and $E(0) = \{(x_1, \dots, x_n) \in \mathbb{F}^n \suchthat x_1 + \dots + x_n = 0\}$.  Note $\text{dim}(E(0)) = n-1$ and a basis for $E(0)$ is
+	\begin{align*}
+		\pi = ((1, -1, 0, \dots, 0), (1, 0, -1, 0, \dots, 0), \dots, (1, 0, \dots, 0, -1))
+	\end{align*}
+	Let $\pi'$ be the concatenation of $(1, \dots, 1)$ and $\pi$.  In other words,
+	\begin{align*}
+		\pi' = ((1, \dots, 1),(1, -1, 0, \dots, 0), (1, 0, -1, 0, \dots, 0), \dots, (1, 0, \dots, 0, -1))
+	\end{align*}
+	Since $\pi$ is a basis for $E(0)$, then $\pi$ is a linearly independent list.  However, $(1, \dots, 1)$ is a basis for $E(n x_n)$ and any two vectors from different eigenspaces are linearly independent.  Thus $\pi'$ is a linearly independent list.  However, since $\text{dim}(\mathbb{F}^n) = n = 1 + (n-1) = \text{dim}(E(n x_n)) + \text{dim}(E(0))$, and since $\text{len}(\pi') = n$, then $\pi'$ is a basis for $\mathbb{F}^n$.  Note the following:
+	\begin{align*}
+		T(1, \dots, 1) &= (n, \dots, n) = n(1, \dots, 1)\\
+		T(1, -1, 0, \dots, 0) &= (0, \dots, 0) \\
+		T(1, 0, -1, 0, \dots, 0) &= (0, \dots, 0) \\
+		&\vdots \\
+		(1, 0, \dots, 0, -1) &= (0, \dots, 0)
+	\end{align*}
+	Thus,
+	\begin{align*}
+		\mathcal{M}(T, \pi') = \left(\begin{array}{cccc}
+			n & 0 & \dots & 0 \\
+			0 & 0 & & \vdots \\
+			\vdots & & \ddots & \\
+			0 & \dots & & 0
+			\end{array}\right)
+	\end{align*}
+	$\mathcal{M}(T, \pi')$ is both diagonal and upper-triangular.
+\subsection*{\#21}
+{\it Suppose $T \in \mathcal{L}(V)$ is invertible.}
+	\begin{enumerate}[\it\ \ (a)\ \ ]
+		\item {\it Suppose $\lambda \in \mathbb{F}$ with $\lambda \neq 0$.  Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\dfrac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.} \\
+		\begin{align*}
+			&\lambda \text{ is an eigenvalue of }T \\[.1cm]
+			\iff &\exists v \in V \text{such that }T(v) = \lambda v \\[.1cm]
+			\iff &T^{-1}(T(v)) = T^{-1}(\lambda v) \\[.1cm]
+			\iff &v = \lambda T^{-1}(v) \\[.1cm]
+			\iff &T^{-1}(v) = \frac{1}{\lambda}v \text{ for some $v \in V$}\\[.1cm]
+			\iff &\frac{1}{\lambda} \text{ is an eigenvalue of }T^{-1}
+		\end{align*}\hfill $\square$
+		\item {\it Prove that $T$ and $T^{-1}$ have the same eigenvectors.} \\
+		
+		\noindent Let $\hat{v}$ be an eigenvector of $T$ corresponding to an arbitrary eigenvalue of $T$'s, say $\hat{\lambda}$.  Then
+		\begin{align*}
+			T(\hat{v}) &= \hat{\lambda}\hat{v} \\
+			\implies T^{-1}(T(\hat{v})) &= T^{-1}(\hat{\lambda}\hat{v}) \\
+			\implies \hat{v} &= \hat{\lambda}T^{-1}(\hat{v}) \\
+			\implies T^{-1}(\hat{v}) &= \frac{1}{\hat{\lambda}}\hat{v} \\
+		\end{align*}
+		Thus $\hat{v}$ is an eigenvector of $T^{-1}$ corresponding to $\dfrac{1}{\hat{\lambda}}$.  Thus any eigenvector of $T$ is an eigenvector of $T^{-1}$.  However, the same argument and $(T^{-1})^{-1} = T$ implies any eigenvector of $T^{-1}$ is an eigenvector of $T$.  Thus $T$ and $T^{-1}$ have the same eigenvectors. \hfill $\square$
+	\end{enumerate}
+\section*{5C}
+\subsection*{\#14}
+{\it Find $T \in \mathcal{L}(\mathbb{C}^3)$ such that $6$ and $7$ are eigenvalues of $T$ such that $T$ does not have a diagonal matrix with respect to any basis of $\mathbb{C}^3$.} \\
+
+\noindent Define $T \in \mathcal{L}(\mathbb{C}^3)$ by
+\begin{align*}
+	T(z_1, z_2, z_3) = (6z_1 + 3z_2 + 4z_3, 6z_2 + z_3, 7z_3)
+\end{align*}
+Then let $e = (e_1, e_2, e_3)$ be the standard basis.
+\begin{align*}
+	T(e_1) = (6, 0, 0) &= 6e_1 \\
+	T(e_2) = (1, 6, 0) &= 3e_1 + 6e_2 \\
+	T(e_3) = (1, 1, 7) &= 4e_1 + 1e_2 + 7e_3
+\end{align*}
+Thus
+\begin{align*}
+	\mathcal{M}(T, e) = \left(\begin{array}{ccc}
+		6 & 3 & 4 \\
+		0 & 6 & 1 \\
+		0 & 0 & 7
+	\end{array}\right)
+\end{align*}
+Since $\mathcal{M}(T, e)$ is an upper-triangular matrix, the entries on the main diagonal are the eigenvalues.  Thus the eigenvalues of $T$ are $6$ and $7$.  To find the eigenvectors of $T$ corresponding to $6$, set $T(z_1, z_2, z_3) = 6(z_1, z_2, z_3)$.  In other words,
+\begin{align*}
+	\begin{cases}
+		6z_1 + 3z_2 + 4z_3 &= 6z_1 \\
+		6z_2 + z_3 &= 6z_2 \\
+		7z_3 &= 6z_3
+	\end{cases}
+	\implies\begin{cases}
+		z_1 &\text{ is arbitrary in $\mathbb{C}$} \\
+		z_2 &= 0 \\
+		z_3 &= 0
+	\end{cases}
+	\implies E(6) = \{(z, 0, 0) \suchthat z \in \mathbb{C}\}
+\end{align*}
+To find the eigenvectors of $T$ corresponding to $7$, set $T(z_1, z_2, z_3) = 7(z_1, z_2, z_3)$.  In other words,
+\begin{align*}
+	\begin{cases}
+		6z_1 + 3z_2 + 4z_3 &= 7z_1 \\
+		6z_2 + z_3 &= 7z_2 \\
+		7z_3 &= 7z_3
+	\end{cases}
+	\implies\begin{cases}
+		z_1 &= 7z_3 \\
+		z_2 &= z_3 \\
+		z_3 &\text{ is arbitrary in $\mathbb{C}$}
+	\end{cases}
+	\implies E(7) = \{(7z, z, z) \suchthat z \in \mathbb{C}\}
+\end{align*}
+Note $\text{dim}(E(7)) = \text{dim}(E(6)) = 1$, and thus we can never form a linearly independent list comprised entirely of eigenvectors of length more than $2$.  Since $\text{dim}(\mathbb{C}^3) = 3$, all bases are lists of length $3$.  Thus there does not exist a basis for $\mathbb{C}^3$ consisting entirely of eigenvectors.  This is equivalent to saying there does not exist a basis for $\mathbb{C}^3$ such that $\mathcal{M}(T)$ with respect to that basis is diagonal. \hfill $\square$
+
+\subsection*{\#15}
+{\it Suppose $T \in \mathcal{L}(\mathbb{C}^3)$ such that $6$ and $7$ are eigenvalues of $T$.  Furthermore, suppose $T$ does not have a diagonal matric with respect to any basis of $\mathbb{C}^3$.  Prove that there exists $(x, y, z) \in \mathbb{F}^3$ such that $T(x, y, z) = (17 + 8x, \sqrt{5} + 8y, 2\pi + 8z)$.}
+
+
+\end{document}
