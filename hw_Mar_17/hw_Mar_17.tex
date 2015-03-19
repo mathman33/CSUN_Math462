@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\textwidth=17cm \oddsidemargin=-0.9cm \evensidemargin=-0.9cm
+\textheight=23.7cm \topmargin=-1.7cm
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{bigints}
+
+\newcommand{\suchthat}{\, \mid \,}
+\renewcommand{\theenumi}{\alph{enumi}}
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+\setcounter{section}{-1}
+
+\title{\bf HW: Custom Problem, Section 5A \#19, 21}
+\author{\bf Sam Fleischer}
+\date{\bf March 17, 2015}
+
+\begin{document}
+{\bf MATH 462 \hfill Advanced Linear Algebra \ \ \ \ \ \hfill Spring 2015} 
+
+{\let\newpage\relax\maketitle}
+
+\section*{Custom Problem}
+{\it Let $T \in \mathcal{L}(\mathbb{C}^2)$ by $T(z, w) = (2w, -8z)$.}
+	\begin{enumerate}[\it\ \ (a)\ \ ]
+		\item {\it Find a basis for $\mathbb{C}^2$ consisting of eigenvectors of $T$.}\\
+		
+		\noindent To find the eigenvalues, set $T(z, w) = \lambda(z, w)$.
+		\begin{align*}
+			T(z, w) &= \lambda(z, w) \\
+			\implies (2w, -8z) &= (\lambda z, \lambda w) \\
+			\implies 2w = \lambda z\text{,} \ \ \ \ &\text{and}\ \ \ \ -8z = \lambda w \\
+			\implies -8z &= \frac{\lambda^2}{2}z
+		\end{align*}
+		If $z = 0$, then $w = 0$.  Then $\lambda$ would not be an eigenvalue.  So we suppose $z \neq 0$, and thus
+		\begin{align*}
+			-8 &= \frac{\lambda^2}{2} \\
+			\implies -16 &= \lambda^2 \\
+			\implies \lambda &= \pm 4i
+		\end{align*}
+		Thus the two eigenvalues for $T$ are $4i$ and $-4i$.  To find their eigenspaces, set $T(z, w) = 4i(z, w)$ and $T(z, w) = -4i(z, w)$, respectively.  So,
+		\begin{align*}
+			T(z, w) &= 4i(z, w) \\
+			\implies (2w, -8z) &= (4iz, 4iw) \\
+			\implies w &= 2iz
+		\end{align*}
+		Thus $(1, 2i)$ is an eigenvector corresponding to $4i$.  Furthermore, $(1, 2i)$ is a basis for $E(T, 4i)$.  Also,
+		\begin{align*}
+			T(z, w) &= -4i(z, w) \\
+			\implies (2w, -8z) &= (-4iz, -4iw) \\
+			\implies w &= -2iz
+		\end{align*}
+		Thus $(1, -2i)$ is an eigenvector corresponding to $-4i$.  Furthermore, $(1, -2i)$ is a basis for $E(T, -4i)$.  Then $\pi = ((1, 2i), (1, -2i))$ is a linearly independent set since eigenvectors corresponding to different eigenvalues are linearly independent.  Since $\text{dim}(\mathbb{C}^2) = 2$ and $\text{len}(\pi) = 2$, $\pi$ is a basis for $\mathbb{C}^2$ consisting of eigenvectors of $T$.
+		\item {\it Find $\mathcal{M}(T)$ with respect to this basis.}\\
+		
+		\noindent Since
+		\begin{align*}
+			T(1, 2i) &= (2(2i), -8(1)) \\
+			&= (4i, -8) \\
+			&= 4i(1, 2i) + 0(1, -2i)
+		\end{align*}
+		and
+		\begin{align*}
+		T(1, -2i) &= (2(-2i), -8(1)) \\
+		&= (-4i, -8) \\
+		&= 0(1, 2i) -4i(1, -2i)
+		\end{align*}
+		then 
+		\begin{align*}
+			\mathcal{M}(T, \pi) = \left(\begin{array}{cc}
+				4i & 0 \\
+				0 & -4i
+			\end{array}\right)
+		\end{align*}
+	\end{enumerate}
+	
+\section*{5A}
+\subsection*{\#19}
+	{\it Suppose $n$ is a positive integer and $T \in \mathcal{L}(\mathbb{F}^n)$ is defined by}
+	\begin{align*}
+		T(x_1, \dots, x_n) = (x_1 + \dots x_n, \dots, x_1 + \dots, x_n)
+	\end{align*}
+	{\it in other words, $T$ is the operator whose matrix (with respect to the standard basis) consists of all $1$'s.  Find the eigenvalues and eigenvectors of $T$.}\\
+	
+	\noindent To find the eigenvalues, set $T(x_1, \dots, x_n) = \lambda(x_1, \dots, x_n)$.
+	\begin{align*}
+		T(x_1, \dots, x_n) &= \lambda(x_1, \dots, x_n) \\
+		\implies (x_1 + \dots + x_n, \dots, x_1 + \dots + x_n) &= (\lambda x_1, \dots, \lambda x_n) \\
+		\implies x_1 + \dots + x_n &= \lambda x_1 = \dots = \lambda x_n\\
+		\implies \lambda &= \frac{x_1 + \dots + x_n}{x_1} = \dots = \frac{x_1 + \dots + x_n}{x_n}
+	\end{align*}
+	If $\lambda \neq 0$, then $x_1 = \dots = x_n$, and thus $(1, \dots, 1)$ is a basis for $E(T, \lambda)$.  However, if $\lambda = 0$, then $x_1 + \dots + x_n = 0$.  Then $E(T, 0) = \{(x_1, \dots, x_n) \in \mathbb{F}^n \suchthat x_1 + \dots + x_n = 0\}$.  Note $\text{dim}(E(T, 0)) = n-1$ and a basis for $E(T, 0)$ is
+	\begin{align*}
+		\pi = ((1, -1, 0, \dots, 0), (1, 0, -1, 0, \dots, 0), \dots, (1, 0, \dots, 0, -1))
+	\end{align*}
+\subsection*{\#21}
+{\it Suppose $T \in \mathcal{L}(V)$ is invertible.}
+	\begin{enumerate}[\it\ \ (a)\ \ ]
+		\item {\it Suppose $\lambda \in \mathbb{F}$ with $\lambda \neq 0$.  Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\dfrac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.} \\
+		\begin{align*}
+			&\lambda \text{ is an eigenvalue of }T \\[.1cm]
+			\iff &\exists v \in V \text{such that }T(v) = \lambda v \\[.1cm]
+			\iff &T^{-1}(T(v)) = T^{-1}(\lambda v) \\[.1cm]
+			\iff &v = \lambda T^{-1}(v) \\[.1cm]
+			\iff &T^{-1}(v) = \frac{1}{\lambda}v \text{ for some $v \in V$}\\[.1cm]
+			\iff &\frac{1}{\lambda} \text{ is an eigenvalue of }T^{-1}
+		\end{align*}\hfill $\square$
+		\item {\it Prove that $T$ and $T^{-1}$ have the same eigenvectors.} \\
+		
+		\noindent Let $\hat{v}$ be an eigenvector of $T$ corresponding to an arbitrary eigenvalue of $T$'s, say $\hat{\lambda}$.  Then
+		\begin{align*}
+			T(\hat{v}) &= \hat{\lambda}\hat{v} \\
+			\implies T^{-1}(T(\hat{v})) &= T^{-1}(\hat{\lambda}\hat{v}) \\
+			\implies \hat{v} &= \hat{\lambda}T^{-1}(\hat{v}) \\
+			\implies T^{-1}(\hat{v}) &= \frac{1}{\hat{\lambda}}\hat{v} \\
+		\end{align*}
+		Thus $\hat{v}$ is an eigenvector of $T^{-1}$ corresponding to $\dfrac{1}{\hat{\lambda}}$.  Thus any eigenvector of $T$ is an eigenvector of $T^{-1}$.  However, the same argument and $(T^{-1})^{-1} = T$ implies any eigenvector of $T^{-1}$ is an eigenvector of $T$.  Thus $T$ and $T^{-1}$ have the same eigenvectors. \hfill $\square$
+	\end{enumerate}
+
+\end{document}
