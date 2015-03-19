@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{changepage}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\newcommand{\suchthat}{\, \mid \,}
+\allowdisplaybreaks
+\def\arraystretch{1.3}
+
+\begin{document}
+
+{\bf MATH 462 \hfill Advnaced Linear Algebra \hfill Spring 2015}
+
+\title{\bf Homework: Custom Problem, Sec. 3C \# 4}
+\author{\bf Sam Fleischer}
+\date{\bf Due: Tues. Feb. 24, 2015}
+
+{\let\newpage\relax\maketitle}
+\maketitle
+
+\section*{Custom Problem}
+{\it Let $U = \{(x, y, z) \in \mathbb{F}^3 \suchthat x + y + z = 0\}$, $f_1 = (1, -1, 0)$, and $f_2 = (1, 0, -1)$.  Let $T \in \mathcal{L}(U, U)$ defined by $T(f_1) = (1, 1, -2)$, and $T(f_2) = (1, 0, -1)$.}
+\begin{enumerate}[\ \ \ (a)\ \ ]
+\item {\it Compute $\mathcal{M}(T, (f_1, f_2), (f_1, f_2))$, $\mathcal{M}((-4, 2, 2), (f_1, f_2))$, and $\mathcal{M}(T(-4, 2, 2), (f_1, f_2))$.}\\
+
+\noindent Note $T(f_1) = (1, 1, -2) = -1(1, -1, 0)+2(1, 0, -1) = (-1)f_1 + (2)f_2$, and $T(f_2) = (1, 0 ,-1) = 0(1, -1, 0) + 1(1, 0, -1) = (0)f_1 + (1)f_2$.  Thus,
+\begin{align*}
+\mathcal{M}(T, (f_1, f_2), (f_1, f_2)) = \left(\begin{array}{cc}
+-1 & 0 \\
+2 & 1
+\end{array}\right)
+\end{align*}
+Note $(-4, 2, 2) = -2(1, -1, 0) -2(1, 0, -1) = (-2)f_1 + (-2)f_2$.  Thus,
+\begin{align*}
+\mathcal{M}((-4, 2, 2), (f_1, f_2)) = \left(\begin{array}{c}
+-2\\
+-2
+\end{array}\right)
+\end{align*}
+Note $T(-4, 2, 2) = T((-2)f_1 + (-2)f_2) = (-2)T(f_1) + (-2)T(f_2) = (-2)(1, 1, -2) + (-2)(1, 0, -1) = (-4, -2, 6) = 2(1, -1, 0) + (-6)(1, 0, -1) = (2)f_1 + (-6)f_2$.  Thus,
+\begin{align*}
+\mathcal{M}(T(-4, 2, 2), (f_1, f_2)) = \left(\begin{array}{c}
+2\\
+-6
+\end{array}\right)
+\end{align*}
+
+\item {\it Comfirm $\mathcal{M}(T(-4, 2, 2), (f_1, f_2)) = \mathcal{M}(T, (f_1, f_2), (f_1, f_2)) \cdot \mathcal{M}((-4, 2, 2), (f_1, f_2))$}.
+\begin{align*}
+\left(\begin{array}{cc}
+-1 & 0 \\
+2 & 1
+\end{array}\right)
+\cdot
+\left(\begin{array}{c}
+-2\\
+-2
+\end{array}\right)
+=
+\left(\begin{array}{c}
+(-1)(-2) + (0)(-2) \\
+(2)(-2) + (1)(-2)
+\end{array}\right)
+=
+\left(\begin{array}{c}
+2 \\
+-6
+\end{array}\right)
+\end{align*}
+This helps confirm that if $T \in \mathcal{L}(V, W)$, and if $\mathcal{V}$ and $\mathcal{W}$ are bases for $V$ and $W$, respectively, and if $v \in V$, that
+\begin{align*}
+\mathcal{M}(T(v), \mathcal{W}) = \mathcal{M}(T, \mathcal{V}, \mathcal{W}) \cdot \mathcal{M}(v, \mathcal{V})
+\end{align*}
+
+\end{enumerate}
+
+\section*{Sec. 3C}
+\subsection*{\# 4}
+{\it Suppose $\mathcal{V} = (v_1, \dots, v_m)$ is a basis of $V$ and $W$ is finite-dimensional.  Suppose $T \in \mathcal{L}(V, W)$.  Prove that there exists a basis $(w_1, \dots w_n)$ of $W$ such that all the entries in the first column of $\mathcal{M}(T)$ (with respect to the bases $(v_1, \dots, v_m)$ and $(w_1, \dots, w_n)$) are $0$ except for possibly a $1$ in the first row, first column.} \\
+
+\noindent
+Since $W$ is finite dimensional, let $\text{dim}(W) = n$, and let $\mathcal{U} = (u_1, \dots, u_n)$ be a basis for $W$.  Then since $T \in \mathcal{L}(V, W)$, $T(v_1) = b_1u_1 + \dots + b_nu_n$ for some $b_1, \dots, b_n \in \mathbb{F}$.
+\subsubsection*{Case 1: $b_1 = \dots = b_n = 0$}
+Then $T(v_1) = 0u_1 + \dots + 0u_n$.  Thus if $\mathcal{M}(T, \mathcal{V}, \mathcal{U}) = [a_{i,j}]_{n\times m}$, then $a_{i,1} = 0$ for $i = 1, \dots, n$.  In other words, all the entries in the first column of $\mathcal{M}(T, \mathcal{V}, \mathcal{U})$ are $0$.
+\subsubsection*{Case 2: $\exists k \in \{1, \dots, n\}$ {\rm such that} $b_k \neq 0$}
+Then construct the list $\mathcal{W} = (w_1, \dots, w_n)$ where $w_k = T(v_1) = b_1u_1 + \dots + b_nu_n$ and $w_i = u_i$ for $i \in \{1, \dots, k-1, k+1, \dots, n\}$.  Then let
+\begin{align*}
+a_1w_1 + \dots + a_nw_n = 0
+\end{align*}
+for some $a_1, \dots, a_n \in \mathbb{F}$.  Thus
+\begin{align*}
+a_1u_1 + \dots a_{k-1}u_{k-1} + a_k(b_1u_1 + \dots + b_nu_n) + a_{k+1}u_{k+1} + \dots + a_nu_n &= 0
+\end{align*}
+or
+\begin{align*}
+(a_1 + a_kb_1)u_1 + \dots + (a_{k-1} + a_kb_{k-1})u_{k-1} + a_kb_ku_k + (a_{k+1} + a_kb_{k+1})u_{k+1}&\\
+ + \dots + (a_n + a_kb_n)u_n &= 0
+\end{align*}
+But since $\mathcal{U}$ is a basis (and therefore linearly independent), all of the coefficients must be equivalently $0$.  In particular, $a_kb_k = 0$.  By assumption, $b_k \neq 0$.  Thus $a_k = 0$ since $\mathbb{F}$ is a field and there are no zero-divisors in fields.  $a_k = 0 \implies a_1 = \dots = a_n = 0$.  Thus $\mathcal{W}$ is linearly independent.  However, since $\text{dim}(W) = n$, all linearly independent lists in $W$ of length $n$ form a basis of $W$.  Thus $\mathcal{W}$ is a basis of $W$.  Now re-order $\mathcal{W}$ in the following way: $\mathcal{Z} = (w_k, w_1, \dots, w_{k-1}, w_{k+1}, \dots, w_n)$.  Note $\mathcal{Z}$ is a basis because it is simply a re-ordering of another basis.  Then $T(v_1) = w_k = 1w_k + 0w_1 + \dots + 0w_{k-1} + 0w_{k+1} + \dots + 0w_n$.  Thus if $\mathcal{M}(T, \mathcal{V}, \mathcal{Z}) = [a_{i,j}]_{n\times m}$, then $a_{1,1} = 1$ and $a_{i,1} = 0$ for $i = 2, \dots, n$.  In other words, all the entries in the first column of $\mathcal{M}(T, \mathcal{V}, \mathcal{Z})$ are $0$ except for a $1$ in the first row, first column. \\
+
+\noindent In either case, there exists a basis $(w_1, \dots w_n)$ of $W$ such that all the entries in the first column of $\mathcal{M}(T)$ (with respect to the bases $(v_1, \dots, v_m)$ and $(w_1, \dots, w_n)$) are $0$ except for possibly a $1$ in the first row, first column. \qedsymbol
+
+%\pagebreak
+%\begin{thebibliography}{99}
+%
+%\bibitem{Abrams1997b}
+%Abrams, P.~A. and Matsuda, H.
+%Prey Adaptation as a Cause of Predator-Prey Cycles.
+%\emph{Evolution}
+%1997, 51:1742-1750.
+%
+%\bibitem{Chavez2001}
+%Brauer, F., Castillo-Chavez, C.
+%Mathematical Models in Population Biology and Epidemiology.
+%Springer,
+%2011. Print.
+%
+%\bibitem{Boyce2012}
+%Boyce, W. E., and DiPrima, R. C.
+%Elementary Differential Equations and Boundary Value Problems %10\textsuperscript{th} ed.
+%Wiley Global Education
+%2012. Print.
+%
+%\bibitem{Saloniemi1993}
+%Saloniemi, I.
+%A Coevolutionary Predator-Prey Model with Quantitative Characters.
+%\emph{American Naturalist}
+%1993, 141:880-896.
+%
+%\bibitem{Schreiber2011}
+%Schreiber, S.~J., B$\ddot{\mbox{u}}$rger,  R., and Bolnick,  D.~I.
+%The Community Effects of Phenotypic and Genetic Variation within a Predator %Population.
+%\emph{Ecology}
+%2011,  92(8):526-543. 
+%
+%\end{thebibliography}
+
+\end{document}

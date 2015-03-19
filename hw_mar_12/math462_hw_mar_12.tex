@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{changepage}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\newcommand{\suchthat}{\, \mid \,}
+\allowdisplaybreaks
+\def\arraystretch{1.3}
+
+\begin{document}
+
+{\bf MATH 462 \hfill Advnaced Linear Algebra \hfill Spring 2015}
+
+\title{\bf Homework: Sec. 5B \# 3, 9}
+\author{\bf Sam Fleischer}
+\date{\bf Due: Tues. Mar. 12, 2015}
+
+{\let\newpage\relax\maketitle}
+\maketitle
+
+\section*{Sec. 5B}
+\subsection*{\# 3}
+{\it Suppose $T \in \mathcal{L}(V)$ and $T^2 = I$ and $-1$ is not an eigenvalue ot $T$.  Prove $T = I$.} \\
+
+\noindent By the multiplicative properties of polynomials and operators, $T^2 - I = (T - I)(T + I)$.  But $T^2 = I \implies T^2 - I = {\bf 0}$ where ${\bf 0}$ is the zero operator.  Thus $(T - I)(T + I)(v) = {\bf 0}(v) = 0\ \forall v \in V$.  Since $-1$ is not an eigenvalue of $T$, $T + I$ is bijective, and thus $\text{range}(T) = V$.  Then $\forall w \in V,\ \exists v \in V$ such that $(T + I)(v) = w$.  Then $(T - I)(w) = 0,\ \forall w \in V$.  Then $T - I = {\bf 0} \implies T = I$. \qed
+
+\subsection*{\# 9}
+{\it Suppose $V$ is finite dimensional, $T \in \mathcal{L}(V)$, and $v \in V$ with $v \neq 0$.  Let $p$ be a nonzero polynomial of smallest degree such that $(p(T))(v) = 0$.  Prove that every zero of $p$ is an eigenvalue of $T$.} \\
+
+\noindent Let $\lambda$ be a zero of $p$.  Then $p(x) = (x - \lambda)q(x)$ for some polynomial $q(x)$ with $\text{deg}(q) = \text{deg}(p) - 1$.  Then $p(T) = (T - \lambda I)q(T)$.
+\begin{align*}
+(p(T))(v) = 0 \implies (T - \lambda I)(q(T))(v) = 0
+\end{align*}
+Since $p$ is a polynomial of smallest degree such that $(p(T))(v) = 0$ and $\text{deg}(q) < \text{deg}(p)$, then $(q(T))(v) = w$ for some $w\in V$, $w \neq 0$.
+\begin{align*}
+(T - \lambda I)(q(T))(v) = 0 \implies (T - \lambda I)(w) = 0
+\end{align*}
+Thus $T - \lambda I$ is {\it not} injective.  Thus $\lambda$ is an eigenvalue of $T$. \qed
+
+%\pagebreak
+%\begin{thebibliography}{99}
+%
+%\bibitem{Abrams1997b}
+%Abrams, P.~A. and Matsuda, H.
+%Prey Adaptation as a Cause of Predator-Prey Cycles.
+%\emph{Evolution}
+%1997, 51:1742-1750.
+%
+%\bibitem{Chavez2001}
+%Brauer, F., Castillo-Chavez, C.
+%Mathematical Models in Population Biology and Epidemiology.
+%Springer,
+%2011. Print.
+%
+%\bibitem{Boyce2012}
+%Boyce, W. E., and DiPrima, R. C.
+%Elementary Differential Equations and Boundary Value Problems %10\textsuperscript{th} ed.
+%Wiley Global Education
+%2012. Print.
+%
+%\bibitem{Saloniemi1993}
+%Saloniemi, I.
+%A Coevolutionary Predator-Prey Model with Quantitative Characters.
+%\emph{American Naturalist}
+%1993, 141:880-896.
+%
+%\bibitem{Schreiber2011}
+%Schreiber, S.~J., B$\ddot{\mbox{u}}$rger,  R., and Bolnick,  D.~I.
+%The Community Effects of Phenotypic and Genetic Variation within a Predator %Population.
+%\emph{Ecology}
+%2011,  92(8):526-543. 
+%
+%\end{thebibliography}
+
+\end{document}

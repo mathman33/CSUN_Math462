@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{changepage}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\newcommand{\suchthat}{\, \mid \,}
+\allowdisplaybreaks
+\def\arraystretch{1.3}
+
+\begin{document}
+
+{\bf MATH 462 \hfill Advnaced Linear Algebra \hfill Spring 2015}
+
+\title{\bf Homework: Sec. 3A \# 10, Sec. 3B \# 3, 5, 6}
+\author{\bf Sam Fleischer}
+\date{\bf Due: Tues. Feb. 17, 2015}
+
+{\let\newpage\relax\maketitle}
+\maketitle
+
+\section*{Sec. 3A}
+\subsubsection*{\#10}
+{\it Suppose $U$ is a subspace of $V$ with $U \neq V$.  Suppose $S \in \mathcal{L}(U, W)$ and $S \neq 0$.  Define $T: V\rightarrow W$ by}
+\begin{align*}
+T(v) = \left\{\begin{array}{ll}S(v) & \text{\ \ if } v \in U \\
+0 & \text{\ \ if } v \in V \setminus U
+\end{array}\right.
+\end{align*}
+{\it Prove that $T$ is not a linear map on $V$.} \\
+
+\noindent (The notation $\oplus_V$ and $\oplus_W$ represent the addition operations in $V$ and $W$, respectively.  Since $U$ is a subspace of $V$, the addition operation on $U$ is inherited from $V$.)  Let $u \in U$ such that $S(u) = w \neq 0$, and let $v \in V \setminus U$.  Then since $U \subset V$, $u \in V$.  Then $u \oplus_V v \in V$ since $V$ is closed under $\oplus_V$.  Note $u \oplus_V v \notin U$.
+\begin{adjustwidth}{2cm}{}
+{\it Suppose $u \oplus_V v \in U$.  Then $u \oplus_V v = \overline{u}$ for some $\overline{u} \in U$.  Then $v = (\text{-}u) \oplus_V \overline{u} \implies v \in U \Longrightarrow\Longleftarrow$ since $v \in V \setminus U$.}
+\end{adjustwidth}
+Thus $u \oplus_V v \in V \setminus U$.  Then $T(u \oplus_V v) = 0$.  But $T(u) \oplus_W T(v) = S(u) \oplus_W 0 = w + 0 = w \neq 0 = T(x \oplus_V v)$.  Thus $T$ does not preserve addition, and hence is not a linear map. $\qedsymbol$
+
+\section*{Sec. 3B}
+\subsubsection*{\#3}
+{\it Suppose $(v_1, \dots v_m)$ is a list of vectors in $V$.  Define $T \in \mathcal{L}(\mathbb{F}^m, V)$ by}
+\begin{align*}
+T(z_1, \dots, z_m) = z_1v_1 + \dots + z_mv_m
+\end{align*}
+\begin{enumerate}[\ \ \ \bf (a)\ ]
+\item {\it What property of $T$ corresponds to $(v_1, \dots, v_m)$ spanning $V$?} $\boxed{\text{Surjectivity}}$ \\
+
+Suppose $(v_1, \dots, v_m)$ spans V.  Then $\forall v \in V$, $\exists (z_1, \dots, z_m) \in \mathbb{F}^m$ such that $z_1v_1 + \dots + z_mv_m = v$.  Then $\exists z \in \mathbb{F}^m$ such that $T(z) = v$.  Thus $T$ is surjective.  Now suppose $T$ is surjective.  Then $\forall v \in V$, $\exists z \in \mathbb{F}^m$ such that $T(z) = v$.  Since $z \in \mathbb{F}^m$, $z = (z_1, \dots, z_m)$ for some $z_1, \dots, z_m \in \mathbb{F}$.  Then $v$ = $z_1v_1 + \dots z_mv_m$.  Since $v$ was arbitrary in $V$, $(v_1, \dots, v_m)$ spans $V$.
+\item {\it What property of $T$ corresponds to $(v_1, \dots, v_m)$ being linearly independent?} $\boxed{\text{Injectivity}}$ \\
+
+Suppose $(v_1, \dots, v_m)$ is linearly independent.  Then $\forall v \in \text{span}(v_1, \dots, v_m)$, \\$\exists! (z_1, \dots, z_m) \in \mathbb{F}^m$ such that $v = z_1v_1 + \dots + z_mv_m$.  Then suppose $z, y \in \mathbb{F}^m$ (so $z = (z_1, \dots, z_m)$ and $y = (y_1, \dots, y_m)$ for some $z_1, \dots, z_m, y_1, \dots, y_m \in \mathbb{F}$), and suppose $T(z) = T(y)$.  Then $z_1v_1 + \dots + z_mv_m = y_1v_1 + \dots + y_mv_m \implies (z_1 - y_1)v_1 + \dots + (z_m - y_m)v_m = 0$.  Thus $z_1 = y_1$, \dots, $z_m = y_m \implies z = y$.  Thus $T$ is injective.  Now suppose $T$ is injective.  Then $T(z) = T(y) \implies z = y$.  Then let $z = (z_1, \dots, z_m)$ and $z_1v_1 + \dots + z_mv_m = 0$.  But $0 = 0v_1 + \dots + 0v_m$.  Then since $T$ is injective, $z_1 = \dots = z_m = 0$.  Thus $(v_1, \dots, v_m)$ is linearly independent.
+
+\end{enumerate}
+\subsubsection*{\#5}
+{\it Give an example of a linear map $T: \mathbb{R}^4 \rightarrow \mathbb{R}^4$ such that}
+\begin{align*}
+\text{range }T = \text{null }T
+\end{align*}
+Define $T: \mathbb{R}^4 \rightarrow \mathbb{R}^4$ by $T(w, x, y, z) = (y, z, 0, 0)$.  Since $y$ and $z$ are arbitrary in $\mathbb{R}$,
+\begin{align*}
+\text{range }T = \{(a, b, 0, 0) \in \mathbb{R}^4 \suchthat a, b, \in \mathbb{R}\}
+\end{align*}
+Now suppose $T(w, x, y, z) = 0_{\mathbb{R}^4} = (0, 0, 0, 0)$.  Then $(y, z, 0, 0) = (0, 0, 0, 0) \implies y = z = 0$.  Since $w$ and $x$ are arbitrary in $\mathbb{R}^4$,
+\begin{align*}
+\text{null }T = \{(a, b, 0, 0) \in \mathbb{R}^4 \suchthat a, b, \in \mathbb{R}\} = \text{range } T
+\end{align*}
+
+\subsubsection*{\#6}
+{\it Prove that there does not exist a linear map $T: \mathbb{R}^5 \rightarrow \mathbb{R}^5$ such that}
+\begin{align*}
+\text{range }T = \text{null }T
+\end{align*}
+Let $T \in \mathcal{L}(\mathbb{R}^5, \mathbb{R}^5)$.  Then $\text{dim }\mathbb{R}^5 = \text{dim }\text{range }T + \text{dim }\text{null }T$.  Suppose $ \text{range }T = \text{null }T$.  Then $\text{dim }\text{range }T = \text{dim }\text{null }T$.  Thus
+\begin{align*}
+2(\text{dim }\text{range }T) &= \text{dim }\mathbb{R}^5 = 5 \\
+\implies \text{dim }\text{range }T &= \frac{5}{2}
+\end{align*}
+This is a contradiction since the dimension of a vector space must be a natural number.  Thus there does not exist a linear map $T: \mathbb{R}^5 \rightarrow \mathbb{R}^5$ such that $\text{range }T = \text{null }T$. $\qedsymbol$
+
+%\pagebreak
+%\begin{thebibliography}{99}
+%
+%\bibitem{Abrams1997b}
+%Abrams, P.~A. and Matsuda, H.
+%Prey Adaptation as a Cause of Predator-Prey Cycles.
+%\emph{Evolution}
+%1997, 51:1742-1750.
+%
+%\bibitem{Chavez2001}
+%Brauer, F., Castillo-Chavez, C.
+%Mathematical Models in Population Biology and Epidemiology.
+%Springer,
+%2011. Print.
+%
+%\bibitem{Boyce2012}
+%Boyce, W. E., and DiPrima, R. C.
+%Elementary Differential Equations and Boundary Value Problems %10\textsuperscript{th} ed.
+%Wiley Global Education
+%2012. Print.
+%
+%\bibitem{Saloniemi1993}
+%Saloniemi, I.
+%A Coevolutionary Predator-Prey Model with Quantitative Characters.
+%\emph{American Naturalist}
+%1993, 141:880-896.
+%
+%\bibitem{Schreiber2011}
+%Schreiber, S.~J., B$\ddot{\mbox{u}}$rger,  R., and Bolnick,  D.~I.
+%The Community Effects of Phenotypic and Genetic Variation within a Predator %Population.
+%\emph{Ecology}
+%2011,  92(8):526-543. 
+%
+%\end{thebibliography}
+
+\end{document}

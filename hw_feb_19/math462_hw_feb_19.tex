@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{changepage}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\newcommand{\suchthat}{\, \mid \,}
+\allowdisplaybreaks
+\def\arraystretch{1.3}
+
+\begin{document}
+
+{\bf MATH 462 \hfill Advnaced Linear Algebra \hfill Spring 2015}
+
+\title{\bf Homework: Sec. 3B \# 17, Sec. 3C \# 2}
+\author{\bf Sam Fleischer}
+\date{\bf Due: Thurs. Feb. 19, 2015}
+
+{\let\newpage\relax\maketitle}
+\maketitle
+
+\section*{Sec. 3B}
+\subsubsection*{\#17}
+{\it Suppose $V$ and $W$ are both finite-dimensional.  Prove that there exists an injective linear map from $V$ to $W$ if and only if $\text{dim}(V) \leq \text{dim}(W)$.} \\
+
+\noindent Suppose $T \in \mathcal{L}(V, W)$ such that $T$ is injective.  Since $T(0) = 0$ and $T$ is injective, $\text{null}(T) = \{0\}$.  Thus $\text{dim}(\text{null}(T)) = 0$.  Thus,
+\begin{align*}
+\text{dim}(\text{range}(V)) &= \text{dim}(V) - \text{dim}(\text{null}(T)) \\
+\implies \text{dim}(\text{range}(V)) &= \text{dim}(V) - 0 \\
+\implies \text{dim}(\text{range}(V)) &= \text{dim}(V)
+\end{align*}
+Since $\text{range}(V) \subset W$, $\text{dim}(\text{range}(V)) \leq \text{dim}(W)$.  Thus $\text{dim}(V) \leq \text{dim}(W)$. \\
+
+\noindent Now suppose $m = \text{dim}(V) \leq \text{dim}(W) = n$.  Then let $(v_1, \dots, v_m)$ be a basis for $V$ and let $(w_1, \dots, w_n)$  be a basis for $W$.  Define $T:V\rightarrow W$ by $T(v_i) = w_i$ for $i \in \{1, \dots, m\}$.  Note this is a valid map since $m \leq n$ (so $w_i \in W$ for $i \in \{1, \dots, m\}$).  Also, this is a linear map because every linear map is uniquely defined by where it sends basis vectors.  Thus $T \in \mathcal{L}(V, W)$.  Now suppose $a, b \in V$ and $T(a) = T(b)$.  Then $\exists!a_1, \dots, a_m, b_1, \dots, b_m \in \mathbb{F}$ such that $a = a_1v_1 + \dots + a_mv_m$ and $b = b_1v_1 + \dots + b_mv_m$.  Then by the additivity and homogeneity of $T$, $T(a) = T(a_1v_1 + \dots + a_mv_m) = a_1w_1 + \dots + a_mw_m$ and $T(b) = T(b_1v_1 + \dots + b_mv_m) = b_1w_1 + \dots + b_mw_m$.  However, since $T(a) = T(b)$, $a_1w_1 + \dots + a_mw_m = b_1w_1 + \dots + b_mw_m \implies (a_1 - b_1)w_1 + \dots (a_m - b_m)w_m$ = 0.  Since $(w_1, \dots, w_n)$ is a basis, $(w_1, \dots, w_m)$ is linearly independent.  And thus $(a_i - b_i) = 0$ and $a_i = b_i$ for $i \in \{1, \dots, m\}$.  Thus $a = b$.  Thus $T$ is injective. \\
+
+\noindent Thus for finite dimensional vector spaces $V$ and $W$, $\exists T \in \mathcal{L}(V, W)$ such that $T$ is injective $\iff \text{dim}(V) \leq \text{dim}(W)$. \qedsymbol
+
+\section*{Sec. 3C}
+\subsubsection*{\#2}
+{\it Suppose $D \in \mathcal{L}(\mathcal{P}_3(\mathbb{R}), \mathcal{P}_2(\mathbb{R}))$ is the differentiation map defined by $Dp = p'$.  Find a basis of $\mathcal{P}_3(\mathbb{R})$ and a basis of $\mathcal{P}_2(\mathbb{R})$ such that the matrix of $D$ with respect to these bases is}
+\begin{align*}
+\left(\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{array}\right)
+\end{align*}
+
+\noindent Consider the list of vectors in $\mathcal{P}_3(\mathbb{R})$, $\mathcal{X} = \left(x^3, x^2, x, 1\right)$, and let $p = p_3x^3 + p_2x^2 + p_1x + p_0 \in \mathcal{P}_3(\mathbb{R})$.  Then let $a_i = p_i$ for $i \in \{0, 1, 2, 3\}$.  Then $a_3(x^3) + a_2(x^2) + a_1(x) + a_0(1) = p$, and thus $\mathcal{X}$ spans $\mathcal{P}_3(\mathbb{R})$.  Then suppose $a_3x^3 + a_2x^2 + a_1x + a_0 = 0 = 0x^3 + 0x^2 + 0x + 0$.  This implies $a_3 = a_2 = a_1 = a_0 = 0$, and thus $\mathcal{X}$ is linearly independent and a basis of $\mathcal{P}_3(\mathbb{R})$.  Consider the list of vectors in $\mathcal{P}_2(\mathbb{R})$, $\mathcal{Y} = (3x^2, 2x, 1)$, and let $q = q_2x^2 + q_1x + q_0 \in \mathcal{P}_2(\mathbb{R})$.  Then let $b_2 = \frac{1}{3}q_2$, $b_1 = \frac{1}{2}q_1$, and $b_0 = q_0$.  Then $b_2(3x^2) + b_1(2x) + b_0(1) = q$, and thus $\mathcal{Y}$ spans $\mathcal{P}_2(\mathbb{R})$.  Then suppose $b_2(3x^2) + b_1(2x) + b_0(1) = 0 = 0x^2 + 0x + 0$.  This implies $3b_2 = 2b_1 = b_0 = 0$, which implies $b_2 = b_1 = b_0 = 0$.  Thus $\mathcal{Y}$ is linearly independent and a basis of $\mathcal{P}_2(\mathbb{R})$.  Then,
+\begin{align*}
+D(x_3) &= 3x^2 = 1(3x^2) + 0(2x) + 0(1)\\
+D(x_2) &= 2x = 0(3x^2) + 1(2x) + 0(1)\\
+D(x) &= 1 = 0(3x^2) + 0(2x) + 1(1)\\
+D(1) &= 0 = 0(3x^2) + 0(2x) + 0(1)
+\end{align*}
+Thus,
+\begin{align*}
+\mathcal{M}(D, \mathcal{X}, \mathcal{Y}) = \left(\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{array}\right)
+\end{align*}
+
+
+%\pagebreak
+%\begin{thebibliography}{99}
+%
+%\bibitem{Abrams1997b}
+%Abrams, P.~A. and Matsuda, H.
+%Prey Adaptation as a Cause of Predator-Prey Cycles.
+%\emph{Evolution}
+%1997, 51:1742-1750.
+%
+%\bibitem{Chavez2001}
+%Brauer, F., Castillo-Chavez, C.
+%Mathematical Models in Population Biology and Epidemiology.
+%Springer,
+%2011. Print.
+%
+%\bibitem{Boyce2012}
+%Boyce, W. E., and DiPrima, R. C.
+%Elementary Differential Equations and Boundary Value Problems %10\textsuperscript{th} ed.
+%Wiley Global Education
+%2012. Print.
+%
+%\bibitem{Saloniemi1993}
+%Saloniemi, I.
+%A Coevolutionary Predator-Prey Model with Quantitative Characters.
+%\emph{American Naturalist}
+%1993, 141:880-896.
+%
+%\bibitem{Schreiber2011}
+%Schreiber, S.~J., B$\ddot{\mbox{u}}$rger,  R., and Bolnick,  D.~I.
+%The Community Effects of Phenotypic and Genetic Variation within a Predator %Population.
+%\emph{Ecology}
+%2011,  92(8):526-543. 
+%
+%\end{thebibliography}
+
+\end{document}
