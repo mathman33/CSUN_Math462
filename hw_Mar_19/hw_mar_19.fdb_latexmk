@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1426810973 "hw_mar_19.tex" "hw_mar_19.pdf" "hw_mar_19" 1426811153
+["pdflatex"] 1426813927 "hw_mar_19.tex" "hw_mar_19.pdf" "hw_mar_19" 1426813928
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1303254447 8237 52810bdb4db2270e717422560a104aea ""
@@ -155,11 +155,11 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/tools/verbatim.sty" 1399675188 7052 bd460af66db50ed38511e63136966a44 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "hw_mar_19.aux" 1426810974 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "hw_mar_19.out" 1426810974 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "hw_mar_19.tex" 1426810972 10984 f3eb534007d61db69c9d6df5c4c4279d ""
+  "hw_mar_19.aux" 1426813928 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "hw_mar_19.out" 1426813928 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "hw_mar_19.tex" 1426813925 10983 35fd476f6cfa383e38fab76b92125270 ""
   (generated)
-  "hw_mar_19.pdf"
   "hw_mar_19.out"
   "hw_mar_19.log"
   "hw_mar_19.aux"
+  "hw_mar_19.pdf"
