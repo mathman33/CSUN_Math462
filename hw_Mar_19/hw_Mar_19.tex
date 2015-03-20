@@ -33,7 +33,7 @@
 \setcounter{section}{-1}
 
 \title{\bf HW: Custom Problem, Section 5A \#19, 21, Section 5C \#14, 15}
-\author{\bf Sam Fleischer}
+\author{\bf Blam Fleischer}
 \date{\bf March 19, 2015}
 
 \begin{document}
@@ -50,7 +50,7 @@
 		\begin{align*}
 			T(z, w) &= \lambda(z, w) \\
 			\implies (2w, -8z) &= (\lambda z, \lambda w) \\
-			\implies 2w = \lambda z\text{,} \ \ \ \ &\text{and}\ \ \ \ -8z = \lambda w \\
+			\implies 2w &= \lambda z\text{,} \ \ \ \ \text{and}\ \ \ \ -8z = \lambda w \\
 			\implies -8z &= \frac{\lambda^2}{2}z
 		\end{align*}
 		If $z = 0$, then $w = 0$.  Then $\lambda$ would not be an eigenvalue.  So we suppose $z \neq 0$, and thus
@@ -59,19 +59,7 @@
 			\implies -16 &= \lambda^2 \\
 			\implies \lambda &= \pm 4i
 		\end{align*}
-		Thus the two eigenvalues for $T$ are $4i$ and $-4i$.  To find their eigenspaces, set $T(z, w) = 4i(z, w)$ and $T(z, w) = -4i(z, w)$, respectively.  So,
-		\begin{align*}
-			T(z, w) &= 4i(z, w) \\
-			\implies (2w, -8z) &= (4iz, 4iw) \\
-			\implies w &= 2iz
-		\end{align*}
-		Thus $(1, 2i)$ is an eigenvector corresponding to $4i$.  Furthermore, $(1, 2i)$ is a basis for $E(T, 4i)$.  Also,
-		\begin{align*}
-			T(z, w) &= -4i(z, w) \\
-			\implies (2w, -8z) &= (-4iz, -4iw) \\
-			\implies w &= -2iz
-		\end{align*}
-		Thus $(1, -2i)$ is an eigenvector corresponding to $-4i$.  Furthermore, $(1, -2i)$ is a basis for $E(T, -4i)$.  Then $\pi = ((1, 2i), (1, -2i))$ is a linearly independent set since eigenvectors corresponding to different eigenvalues are linearly independent.  Since $\text{dim}(\mathbb{C}^2) = 2$ and $\text{len}(\pi) = 2$, $\pi$ is a basis for $\mathbb{C}^2$ consisting of eigenvectors of $T$.
+		Thus the two eigenvalues for $T$ are $4i$ and $-4i$.  If $\lambda = 4i$, then $2w = \lambda z \implies w = 2iz \implies E(4i) = \{(z, 2iz) \in \mathbb{C}^2 \suchthat z \in \mathbb{C}\}$.  Specifically, $(1, 2i) \in E(4i)$.  If $\lambda = -4i$, then $2w = \lambda z \implies w = -2iz \implies E(-4i) = \{(z, -2iz) \in \mathbb{C}^2 \suchthat z \in \mathbb{C}\}$.  Specifically, $(1, -2i) \in E(-4i)$.  Then $\pi = ((1, 2i), (1, -2i))$ is a linearly independent list since it is comprised entirely of eigenvectors corresponding to distinct eigenvalues.  Since $\text{dim}(\mathbb{C}^2) = 2 = \text{len}(\pi)$, then $\pi$ is a basis for $\mathbb{C}^2$ consisting of eigenvectors of $T$.
 		\item {\it Find $\mathcal{M}(T)$ with respect to this basis.}\\
 		
 		\noindent Since
@@ -110,7 +98,7 @@
 		\implies x_1 + \dots + x_n &= \lambda x_1 = \dots = \lambda x_n\\
 		\implies \lambda &= \frac{x_1 + \dots + x_n}{x_1} = \dots = \frac{x_1 + \dots + x_n}{x_n}
 	\end{align*}
-	If $\lambda \neq 0$, then $x_1 = \dots = x_n$.  This implies $\lambda = n x_n$ is an eigenvalue and $(1, \dots, 1)$ is a basis for $E(n x_n)$.  However, if $\lambda = 0$, then the equation is true if $x_1 + \dots + x_n = 0$.  Thus $0$ is an eigenvalue and $E(0) = \{(x_1, \dots, x_n) \in \mathbb{F}^n \suchthat x_1 + \dots + x_n = 0\}$.  Note $\text{dim}(E(0)) = n-1$ and a basis for $E(0)$ is
+	If $\lambda \neq 0$, then $x_1 = \dots = x_n$.  This implies $\lambda = n x_n$ is an eigenvalue and $((1, \dots, 1))$ is a basis for $E(n x_n) = \{(x, \dots, x) \in \mathbb{F}^n \suchthat x \in \mathbb{F}\}$.  However, if $\lambda = 0$, then the equation is true only if $x_1 + \dots + x_n = 0$.  Thus $0$ is an eigenvalue and $E(0) = \{(x_1, \dots, x_n) \in \mathbb{F}^n \suchthat x_1 + \dots + x_n = 0\}$.  Note $\text{dim}(E(0)) = n-1$ and a basis for $E(0)$ is
 	\begin{align*}
 		\pi = ((1, -1, 0, \dots, 0), (1, 0, -1, 0, \dots, 0), \dots, (1, 0, \dots, 0, -1))
 	\end{align*}
@@ -118,7 +106,11 @@
 	\begin{align*}
 		\pi' = ((1, \dots, 1),(1, -1, 0, \dots, 0), (1, 0, -1, 0, \dots, 0), \dots, (1, 0, \dots, 0, -1))
 	\end{align*}
-	Since $\pi$ is a basis for $E(0)$, then $\pi$ is a linearly independent list.  However, $(1, \dots, 1)$ is a basis for $E(n x_n)$ and any two vectors from different eigenspaces are linearly independent.  Thus $\pi'$ is a linearly independent list.  However, since $\text{dim}(\mathbb{F}^n) = n = 1 + (n-1) = \text{dim}(E(n x_n)) + \text{dim}(E(0))$, and since $\text{len}(\pi') = n$, then $\pi'$ is a basis for $\mathbb{F}^n$.  Note the following:
+	Since $\pi$ is a basis for $E(0)$, then $\pi$ is a linearly independent list.  However, $((1, \dots, 1))$ is a basis for $E(n x_n)$ and any two vectors from different eigenspaces are linearly independent.  Thus $\pi'$ is a linearly independent list.  Note
+	\begin{align*}
+		\text{dim}(\mathbb{F}^n) = n = 1 + (n-1) = \text{dim}(E(n x_n)) + \text{dim}(E(0)) = \text{len}(\pi')
+	\end{align*}
+	Thus $\pi'$ is a basis for $\mathbb{F}^n$.  Note the following:
 	\begin{align*}
 		T(1, \dots, 1) &= (n, \dots, n) = n(1, \dots, 1)\\
 		T(1, -1, 0, \dots, 0) &= (0, \dots, 0) \\
@@ -135,7 +127,6 @@
 			0 & \dots & & 0
 			\end{array}\right)
 	\end{align*}
-	$\mathcal{M}(T, \pi')$ is both diagonal and upper-triangular.
 \subsection*{\#21}
 {\it Suppose $T \in \mathcal{L}(V)$ is invertible.}
 	\begin{enumerate}[\it\ \ (a)\ \ ]
@@ -157,7 +148,7 @@
 			\implies \hat{v} &= \hat{\lambda}T^{-1}(\hat{v}) \\
 			\implies T^{-1}(\hat{v}) &= \frac{1}{\hat{\lambda}}\hat{v} \\
 		\end{align*}
-		Thus $\hat{v}$ is an eigenvector of $T^{-1}$ corresponding to $\dfrac{1}{\hat{\lambda}}$.  Thus any eigenvector of $T$ is an eigenvector of $T^{-1}$.  However, the same argument and $(T^{-1})^{-1} = T$ implies any eigenvector of $T^{-1}$ is an eigenvector of $T$.  Thus $T$ and $T^{-1}$ have the same eigenvectors. \hfill $\square$
+		Thus $\hat{v}$ is an eigenvector of $T^{-1}$ corresponding to $\dfrac{1}{\hat{\lambda}}$.  Thus any eigenvector of $T$ is an eigenvector of $T^{-1}$.  However, $(T^{-1})^{-1} = T$ implies any eigenvector of $T^{-1}$ is an eigenvector of $T$.  Thus $T$ and $T^{-1}$ have the same eigenvectors. \hfill $\square$
 	\end{enumerate}
 \section*{5C}
 \subsection*{\#14}
@@ -170,8 +161,8 @@
 Then let $e = (e_1, e_2, e_3)$ be the standard basis.
 \begin{align*}
 	T(e_1) = (6, 0, 0) &= 6e_1 \\
-	T(e_2) = (1, 6, 0) &= 3e_1 + 6e_2 \\
-	T(e_3) = (1, 1, 7) &= 4e_1 + 1e_2 + 7e_3
+	T(e_2) = (3, 6, 0) &= 3e_1 + 6e_2 \\
+	T(e_3) = (4, 1, 7) &= 4e_1 + 1e_2 + 7e_3
 \end{align*}
 Thus
 \begin{align*}
@@ -181,7 +172,7 @@ Thus
 		0 & 0 & 7
 	\end{array}\right)
 \end{align*}
-Since $\mathcal{M}(T, e)$ is an upper-triangular matrix, the entries on the main diagonal are the eigenvalues.  Thus the eigenvalues of $T$ are $6$ and $7$.  To find the eigenvectors of $T$ corresponding to $6$, set $T(z_1, z_2, z_3) = 6(z_1, z_2, z_3)$.  In other words,
+Since $\mathcal{M}(T, e)$ is an upper-triangular matrix, the entries on the main diagonal are the eigenvalues of $T$.  Thus $6$ and $7$ are the eigenvalues of $T$.  To find the eigenvectors of $T$ corresponding to $6$, set $T(z_1, z_2, z_3) = 6(z_1, z_2, z_3)$.  In other words, $(6z_1 + 3z_2 + 4z_3, 6z_2 + z_3, 7z_3) = (6z_1, 6z_2, 6z_3)$, or 
 \begin{align*}
 	\begin{cases}
 		6z_1 + 3z_2 + 4z_3 &= 6z_1 \\
@@ -195,7 +186,7 @@ Since $\mathcal{M}(T, e)$ is an upper-triangular matrix, the entries on the main
 	\end{cases}
 	\implies E(6) = \{(z, 0, 0) \suchthat z \in \mathbb{C}\}
 \end{align*}
-To find the eigenvectors of $T$ corresponding to $7$, set $T(z_1, z_2, z_3) = 7(z_1, z_2, z_3)$.  In other words,
+To find the eigenvectors of $T$ corresponding to $7$, set $T(z_1, z_2, z_3) = 7(z_1, z_2, z_3)$.  In other words, $(6z_1 + 3z_2 + 4z_3, 6z_2 + z_3, 7z_3) = (7z_1, 7z_2, 7z_3)$, or 
 \begin{align*}
 	\begin{cases}
 		6z_1 + 3z_2 + 4z_3 &= 7z_1 \\
@@ -212,7 +203,18 @@ To find the eigenvectors of $T$ corresponding to $7$, set $T(z_1, z_2, z_3) = 7(
 Note $\text{dim}(E(7)) = \text{dim}(E(6)) = 1$, and thus we can never form a linearly independent list comprised entirely of eigenvectors of length more than $2$.  Since $\text{dim}(\mathbb{C}^3) = 3$, all bases are lists of length $3$.  Thus there does not exist a basis for $\mathbb{C}^3$ consisting entirely of eigenvectors.  This is equivalent to saying there does not exist a basis for $\mathbb{C}^3$ such that $\mathcal{M}(T)$ with respect to that basis is diagonal. \hfill $\square$
 
 \subsection*{\#15}
-{\it Suppose $T \in \mathcal{L}(\mathbb{C}^3)$ such that $6$ and $7$ are eigenvalues of $T$.  Furthermore, suppose $T$ does not have a diagonal matric with respect to any basis of $\mathbb{C}^3$.  Prove that there exists $(x, y, z) \in \mathbb{F}^3$ such that $T(x, y, z) = (17 + 8x, \sqrt{5} + 8y, 2\pi + 8z)$.}
+{\it Suppose $T \in \mathcal{L}(\mathbb{C}^3)$ such that $6$ and $7$ are eigenvalues of $T$.  Furthermore, suppose $T$ does not have a diagonal matrix with respect to any basis of $\mathbb{C}^3$.  Prove that there exists $(x, y, z) \in \mathbb{F}^3$ such that $T(x, y, z) = (17 + 8x, \sqrt{5} + 8y, 2\pi + 8z)$.}\\
 
+\noindent Note the following:
+\begin{align*}
+	T(x, y, z) &= (17 + 8x, \sqrt{5} + 8y, 2\pi + 8z) \\
+	\iff T(x, y, z) &= (17, \sqrt{5}, 2\pi) + 8(x, y, z) \\
+	\iff T(x, y, z) - 8(x, y, z) &= (17, \sqrt{5}, 2\pi) \\
+	\iff T(x, y, z) - 8I(x, y, z) &= (17, \sqrt{5}, 2\pi) \\
+	\iff (T - 8I)(x, y, z) &= (17, \sqrt{5}, 2\pi)
+\end{align*}
+It suffices to show $\exists(x, y, z) \in \mathbb{F}^3$ such that $(T - 8I)(x, y, z) = (17, \sqrt{5}, 2\pi)$.  To do this, we will show $8$ is not an eigenvalue, which will imply $T - 8I$ is surjective, proving the result. \\
+
+\noindent Assume $8$ is an eigenvalue.  Then $\exists v_1 \neq 0$ such that $v_1 \in E(8)$.  Similarly, since $6$ and $7$ are eigenvalues, there exist non-zero elements $v_2$ and $v_3$ such that $v_2 \in E(6)$ and $v_3 \in E(7)$.  Let $\tau = (v_1, v_2, v_3)$.  Since a list containing elements from distinct eigenspaces is linearly independent, $\tau$ is linearly independent.  Also, since $\text{len}(\tau) = 3 = \text{dim}(\mathbb{F}^3)$, then $\tau$ is a basis for $\mathbb{F}^3$.  Since $\tau$ consists entirely of eigenvectors, $T$ is diagonalizable $\Longrightarrow\Longleftarrow$.  Thus $8$ is not an eigenvalue.  Thus $(T - 8I)$ is surjective.  Thus $\exists (x, y, z) \in \mathbb{F}^3$ such that $(T - 8I)(x, y, z) = (17, \sqrt{5}, 2\pi)$.  Thus $\exists (x, y, z) \in \mathbb{F}^3$ such that $T(x, y, z) = (17 + 8x, \sqrt{5} + 8y, 2\pi + 8z)$. \hfill $\square$
 
 \end{document}
