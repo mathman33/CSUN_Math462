@@ -84,7 +84,7 @@
 \end{enumerate}
 
 \subsection*{\#2}
-{Let $T \in \mathcal{L}(\mathbb{C}^3$ by $T(z_1, z_2, z_3) = (4z_1 + 4z_2 + 4z_3, 5z_2 + 4z_3, 5z_3)$}
+{Let $T \in \mathcal{L}(\mathbb{C}^3)$ by $T(z_1, z_2, z_3) = (4z_1 + 4z_2 + 4z_3, 5z_2 + 4z_3, 5z_3)$}
 \begin{enumerate}[\ \ \it(a)\ \ ]
 	\item {\it Find the eigenvalues and associated eigenspaces for $T$.} \\
 
@@ -127,7 +127,7 @@
 	\end{align*}
  	\item {\it Determine whether there exists a basis for $U$ so that $\mathcal{M}(T)$ is diagonal with respect to that basis.  If so, find suh a basis, compute $\mathcal{M}(T)$ with respect to that basis, and ignore (c) and (d).  If not, move on to parts (c) and (d).} \\
 
-	\noindent Note $\text{dim}(E(4)) = 1$ and $\text{dim}(E(5)) = 1$.  Thus each of these eigenspaces may contribute only one vector to a linearly independent list.  Since $\text{dim}(\mathbb{C}^3) = 3$, the by the Pigeonhole Principle, we cannot form basis for $\mathbb{C}^3$ comprised entirely of vectors from $E(4)$ and $E(5)$.  Thus we cannot form a basis comprised entirely of eigenvectors, and thus $T$ is not diagonalizable.  We unfortunately cannot ignore {\it(c)} and {\it(d)}.
+	\noindent Note $\text{dim}(E(4)) = 1$ and $\text{dim}(E(5)) = 1$.  Thus each of these eigenspaces may contribute only one vector to a linearly independent list.  Since $\text{dim}(\mathbb{C}^3) = 3$, then, by the Pigeonhole Principle, we cannot form basis for $\mathbb{C}^3$ comprised entirely of vectors from $E(4)$ and $E(5)$.  Thus we cannot form a basis comprised entirely of eigenvectors, and thus $T$ is not diagonalizable.  We unfortunately cannot ignore {\it(c)} and {\it(d)}.
 	\item {\it Compute the generalized eigenspaces for $T$, and find a basis for $U$ consisting of generalized eigenvectors.}
 	
 	\noindent By definition, $G(4) = \text{null}(T - 4I)^3$
@@ -218,7 +218,6 @@
 	\end{align*}
 	$\text{dim}(G(4)) = 1 \implies G(4)$ may contribute only one vector to a linearly independent list.  $\text{dim}(G(5)) = 2 \implies G(5)$ may contribute up to two vectors to a linearly independent list.  Since vectors from different generalized eigenspaces are linearly independent and $\text{dim}(\mathbb{C}^3) = 3$, we can form a basis comprised of one vector from $G(4)$ and two from $G(5)$.  Pick $(1, 0, 0) \in G(4)$, and $(4, 1, 0), (-12, 0, 1) \in G(5)$, and let $\pi = \Big((1, 0, 0), (4, 1, 0), (-12, 0, 1)\Big)$.  Then $\pi$ is a basis of $\mathbb{C}^3$ comprised entirely of generalized eigenvectors.
 	\item {\it Compute $\mathcal{M}(T)$ with respect to the basis that is your answer in part (c), arranging your answer in block diagonal form.}
-
 	\begin{align*}
 		T(1, 0, 0) &= T(e_1) = 4e_1 = (4, 0, 0) = 4(1, 0, 0) \\
 		T(4, 1, 0) &= 4T(e_1) + T(e_2) = 4(4e_1) + (4e_1 + 5e_2) \\
