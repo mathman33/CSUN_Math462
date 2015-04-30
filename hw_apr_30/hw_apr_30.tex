@@ -66,8 +66,8 @@ However, since ${e_k}$ is an eigenvector, ${e_k} \neq 0$.  Then $\lambda_k = 0$ 
 \end{align*}
 for all $k = 1, \dots, n$.  Then let $v = \displaystyle\sum\limits_{k = 1}^{n}(a_ke_k)$.  Then
 \begin{align*}
-		T^2(v) &= T^2\left(\sum_{k = 1}^{n}(a_ke_k)\right) = a_k\sum_{k = 1}^{n}(T^2(e_k)) = a_k\sum_{k = 1}^{n}(T(e_k)) = T\left(\sum_{k = 1}^{n}(a_ke_k)\right) = T(v)
-\end{align*}  Thus $T^2 = T$.
+		T^2(v) &= T^2\left(\sum_{k = 1}^{n}(a_ke_k)\right) = \sum_{k = 1}^{n}(a_kT^2(e_k)) = \sum_{k = 1}^{n}(a_kT(e_k)) = T\left(\sum_{k = 1}^{n}(a_ke_k)\right) = T(v)
+\end{align*}  Thus $T^2 = T$. \hfill $\square$
 
 \subsection*{\#8}
 {\it Give an example of an operator $T$ on a complex vector space such that $T^9 = T^8$ but $T^2 \neq T$.} \\
@@ -86,7 +86,7 @@ for all $k = 1, \dots, n$.  Then let $v = \displaystyle\sum\limits_{k = 1}^{n}(a
 				0 & \dots & 0 & \lambda_n
 		\end{array}\right)
 \end{align*}
-These $\lambda_k$'s need not be unique.  Since every complex number has a square root (in particular $\sqrt{\lambda_k} = (r_ke^{i\theta_k})^{\frac{1}{2}} = r_ke^{\frac{1}{2}i\theta_k}$), we can define $S \in \mathcal{L}(V)$ by where it maps each element in the basis $\omega$:
+These $\lambda_k$'s need not be unique.  Since every complex number has a square root (in particular $\sqrt{\lambda_k} = (r_ke^{i\theta_k})^{\frac{1}{2}} = r_ke^{\frac{1}{2}i\theta_k}$), we can define $S \in \mathcal{L}(V)$ by where it maps each element in the basis $\omega$.
 \begin{align*}
 		S(\omega_k) = \sqrt{\lambda_k}\omega_k
 \end{align*}
