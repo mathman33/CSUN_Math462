@@ -44,32 +44,35 @@
 
 \section*{Section 7B}
 \subsection*{\#6}
-{\it Proce that a normal operator on a complex inner product space is self-adjoint if and only if all of its eigenvalues are real.} \\
+{\it Prove that a normal operator on a complex inner product space is self-adjoint if and only if all of its eigenvalues are real.} \\
 
 \noindent Since $T$ is normal, the Complex Spectral Theorem states that $T$ has a basis of orthonormal eigenvectors.  Let $e = (e_1, \dots, e_n)$ be one such basis.  Then $\mathcal{M}(T, e)$ is a diagonal matrix, and all entries on the diagonal are eigenvalues of $T$. \\
 
-\noindent Now suppose $T$ is self-adjoint, i.e. $T = T^*$.  Then since $\mathcal{M}(T^*, e)$ is the conjugate transpose of $\mathcal{M}(T, e)$, then $\mathcal{M}(T, e)$ is its own conjugate transpose $\iff$ each entry on the diagonal is equal to its conjugate $\iff$ each entry on the diagonal is real $\iff$ all of $T$'s eigenvalues are real. \hfill $\square$
+\noindent Now suppose $T$ is self-adjoint, i.e. $T = T^*$.  Then since $\mathcal{M}(T^*, e)$ is the conjugate transpose of $\mathcal{M}(T, e)$, then $\mathcal{M}(T, e)$ is its own conjugate transpose $\iff$ each entry on the diagonal is equal to its conjugate $\iff$ each entry on the diagonal of $\mathcal{M}(T, e)$ is real $\iff$ all of $T$'s eigenvalues are real. \hfill $\square$
 
 \subsection*{\#7}
 {\it Suppose $V$ is a complex inner product space and $T \in \mathcal{L}(V)$ is a normal operator such that $T^9 = T^8$.  Prove that $T$ is self-adjoint and $T^2 = T$.} \\
 
-\noindent Since $T$ is normal, the Complex Spectral Theorem states that $T$ has a basis of orthonormal eigenvectors.  Then $\forall v \in V$, $\exists \lambda \in \mathbb{C}$ such that $T(v) = \lambda v$.  Then,
+\noindent Since $T$ is normal, the Complex Spectral Theorem states that $T$ has a basis of orthonormal eigenvectors.  Let $e = (e_1, \dots, e_n)$ be one such basis.  Then $T(e_k) = \lambda_kv$.  for some $\lambda_k \in \mathbb{C}$.  Then,
 \begin{align*}
-		\lambda^9v = T^9(v) &= T^8(v) = \lambda^8v \\
-		\implies \lambda^9v - \lambda^8v &= 0 \\
-		\implies \lambda^8(\lambda - 1)v &= 0 \\
-		\implies v = 0\ \ \text{or}\ \ \lambda &= 0\ \ \text{or}\ \ \lambda = 1
+		\lambda_k^9{e_k} = T^9({e_k}) &= T^8({e_k}) = \lambda_k^8{e_k} \\
+		\implies \lambda_k^9{e_k} - \lambda_k^8{e_k} &= 0 \\
+		\implies \lambda_k^8(\lambda_k - 1){e_k} &= 0 \\
+		\implies {e_k} = 0\ \ \text{or}\ \ \lambda_k &= 0\ \ \text{or}\ \ \lambda_k = 1
 \end{align*}
-However, since $v$ is an eigenvector, $v \neq 0$.  Then $\lambda = 0$ or $\lambda = 1$.  Since $0$ and $1$ are real, $T$ may only have real eigenvalues.  By the previous problem, any normal operator with real eigenvalues is self-adjoint.  Thus $T$ is self-adjoint.  Also, since $0^2 = 0$ and $1^2 = 1$, then $\forall v \in V$, $\exists \lambda \in \mathbb{C}$ such that
+However, since ${e_k}$ is an eigenvector, ${e_k} \neq 0$.  Then $\lambda_k = 0$ or $\lambda_k = 1$.  Since $0$ and $1$ are real, $T$ may only have real eigenvalues.  By the previous problem, any normal operator with real eigenvalues is self-adjoint.  Thus $T$ is self-adjoint.  Also, since $0^2 = 0$ and $1^2 = 1$, then
 \begin{align*}
-		T^2(v) = \lambda^2v = \lambda v = T(v)
+		T^2({e_k}) = \lambda_k^2{e_k} = \lambda_k {e_k} = T({e_k})
 \end{align*}
-Thus $T^2 = T$.
+for all $k = 1, \dots, n$.  Then let $v = \displaystyle\sum\limits_{k = 1}^{n}(a_ke_k)$.  Then
+\begin{align*}
+		T^2(v) &= T^2\left(\sum_{k = 1}^{n}(a_ke_k)\right) = a_k\sum_{k = 1}^{n}(T^2(e_k)) = a_k\sum_{k = 1}^{n}(T(e_k)) = T\left(\sum_{k = 1}^{n}(a_ke_k)\right) = T(v)
+\end{align*}  Thus $T^2 = T$.
 
 \subsection*{\#8}
 {\it Give an example of an operator $T$ on a complex vector space such that $T^9 = T^8$ but $T^2 \neq T$.} \\
 
-\noindent Conside $T \in \mathcal{L}(\mathbb{C}^2)$ defined by $T(z_1, z_2) = (0, z_1)$.  Then $T^2(z_1, z_2) = (0, 0) \implies T^2 = \bf{0}$, where $\bf{0}$ is the zero operator.  Thus $T$ is nilpotent.  Then $T^k = {\bf0}\ \forall k \geq \text{dim}(\mathbb{C}^2) = 2$.  Thus $T^9 = T^8 = {\bf 0}$. \hfill $\square$
+\noindent Consider $T \in \mathcal{L}(\mathbb{C}^2)$ defined by $T(z_1, z_2) = (0, z_1)$.  Then $T^2(z_1, z_2) = (0, 0) \implies T^2 = \bf{0}$, where $\bf{0}$ is the zero operator.  Thus $T$ is nilpotent.  Then $T^k = {\bf0}\ \forall k \geq \text{dim}(\mathbb{C}^2) = 2$.  Thus $T^9 = T^8 = {\bf 0}$. \hfill $\square$
 
 \subsection*{\#9}
 {\it Suppose $V$ is a complex inner product space.  Prove that every normal operator on $V$ has a square root.  (An operator $S \in \mathcal{L}(V)$ is called a square root of $T \in \mathcal{L}(V)$ if $S^2 = T$.)} \\
