@@ -22,6 +22,7 @@
 \allowdisplaybreaks
 
 \newcommand{\suchthat}{\, \mid \,}
+\newcommand{\VECTOR}[1]{\langle #1 \rangle}
 \renewcommand{\theenumi}{\alph{enumi}}
 \newcommand\Wider[2][3em]{%
 \makebox[\linewidth][c]{%
@@ -47,17 +48,17 @@
 {\it Let $T \in \mathcal{L}(V)$.  Prove $T$ is invertible if and only if $T^*$ is invertible.} \\
 
 \noindent ``$\Longrightarrow$'' \\
-Suppose $T$ is invertible, and that $T^*(w_1) = T^*(w_2)$.  Then by the definition of $T^*$
+Suppose $T$ is invertible, and that $T^*(w_1) = T^*(w_2)$.  Then by the definition of $T^*$,
 \begin{align*}
-	\langle T(v), w_1\rangle = \langle v, T^*(w_1)\rangle \ \ \ \text{and}\ \ \ \langle T(v), w_2\rangle = \langle v, T^*(w_2)\rangle
+	\VECTOR{T(v), w_1} = \VECTOR{v, T^*(w_1)} \ \ \ \text{and}\ \ \ \VECTOR{T(v), w_2} = \VECTOR{v, T^*(w_2)}
 \end{align*}
 for every $v \in V$.  Thus,
 \begin{align*}
-	\langle T(v), w_1 \rangle &= \langle v, T^*(w_1) \rangle = \langle v, T^*(w_2) \rangle = \langle T(v), w_2 \rangle
+	\VECTOR{T(v), w_1} &= \VECTOR{v, T^*(w_1)} = \VECTOR{v, T^*(w_2)} = \VECTOR{T(v), w_2}
 \end{align*}
 for every $v \in V$.  However, since $T$ is invertible, it is surjective, and thus $\text{range}(T) = V$, and so 
 \begin{align*}
-	\langle z, w_1 \rangle = \langle z, w_2 \rangle
+	\VECTOR{z, w_1} = \VECTOR{z, w_2}
 \end{align*}
 for every $z \in V$.  Thus $w_1 = w_2$.  Thus $T^*$ is injective.  Thus $T^*$ is invertible. \\
 
@@ -74,42 +75,42 @@ Suppose $T^*$ is invertible.  Then by the above argument, $(T^*)^*$ is invertibl
 \end{align*}
 {\it Find a formula for $T^*(w_1, \dots, w_n)$.} \\
 
-\noindent Let $w = (w_1, \dots, w_n) \in \mathcal{L}(\mathbb{F}^n)$.  Note the following:
+\noindent Let $w = (w_1, \dots, w_n) \in \mathbb{F}^n$.  Note the following:
 \begin{align*}
-	\langle T(z_1, \dots, z_n), w \rangle &= \langle (0, z_1, \dots, z_{n-1}), (w_1, \dots, w_n) \rangle \\
+	\VECTOR{T(z_1, \dots, z_n), w} &= \VECTOR{(0, z_1, \dots, z_{n-1}), (w_1, \dots, w_n)} \\
 	&= z_1w_2 + \dots z_{n-1}w_n \\
-	&= \langle (z_1, dots, z_n), (w_2, \dots, w_n, 0) \rangle
+	&= \VECTOR{(z_1, \dots, z_n), (w_2, \dots, w_n, 0)}
 \end{align*}
-for every $v \in V$.  Thus, by the definition of $T^*$,
+for every $(z_1, \dots, z_n) \in V$.  Thus, by the definition of $T^*$,
 \begin{align*}
 	T^*(w_1, \dots, w_n) = (w_2, \dots, w_n, 0)
 \end{align*}
 \hfill $\square$
 
 \subsection*{\#2}
-{\it Suppose $T \in \mathcal{L}(V)$ and $\lambda \in \mathbb{F}$.  Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\overline{lambda}$ is an eigenvalue of $T^*$.} \\
+{\it Suppose $T \in \mathcal{L}(V)$ and $\lambda \in \mathbb{F}$.  Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\overline{\lambda}$ is an eigenvalue of $T^*$.} \\
 
 \noindent ``$\Longrightarrow$'' \\
 Suppose $\lambda$ is an eigenvalue of $T$.  Then $T(v) = \lambda v$ for some nonzero $v \in V$.  Thus $v \in \text{null}(T - \lambda I)$.  In other words, $(T - \lambda I)(v) = 0$.  Now note that
 \begin{align*}
 	(T - \lambda I)^* = T^* - (\lambda I)^* = T^* - \overline{\lambda}I^* = T^* - \overline{\lambda}I
 \end{align*}
-since $I$ is self-adjoint.  Thus,
+since $I$ is self-adjoint ($I = I^*$).  Thus,
 \begin{align*}
-	\langle (T - \lambda I)(v), w \rangle = \langle v, (T^* - \overline{\lambda}I)(w) \rangle
+	\VECTOR{(T - \lambda I)(v), w} = \VECTOR{v, (T^* - \overline{\lambda}I)(w)}
 \end{align*}
 for all $w \in V$.  However, $(T - \lambda I)(v) = 0$.  Then
 \begin{align*}
-	\langle (T - \lambda I)(v), w \rangle \langle 0, w \rangle = 0 \\
-	\implies 0 = \langle v, (T^* - \overline{\lambda}I)(w) \rangle
+	\VECTOR{(T - \lambda I)(v), w} = \VECTOR{0, w} = 0 \\
+	\implies 0 = \VECTOR{v, (T^* - \overline{\lambda}I)(w)}
 \end{align*}
 for all $w \in V$.  Now suppose $\overline{\lambda}$ is {\it not} an eigenvalue of $T^*$.  Then $\text{range}(T^* - \overline{\lambda}I) = V$.  Then in particular, $\exists z \in V$ such that $(T^* - \overline{\lambda}I)(z) = v$.  Thus
 \begin{align*}
-	0 = \langle v, v \rangle
+	0 = \VECTOR{v, v}
 \end{align*}
 Thus $v = 0$, which implies $v$ is not an eigenvalue of $T$, which is a contradiction.  Then $\overline{\lambda}$ is an eigenvalue of $T^*$. \\
 
-\noindent ``$\Longleftarrow$''
+\noindent ``$\Longleftarrow$'' \\
 Suppose $\overline{\lambda}$ is an eigenvalue of $T^*$.  Then since $\overline{\overline{\lambda}} = \lambda$ and $(T^*)^* = T$, then by the above argument, $\lambda$ is an eigenvalue of $T$. \\
 
 \noindent Thus $\lambda$ is an eigenvalue of $T$ if and only if $\overline{\lambda}$ is an eigenvalue of $T^*$. \hfill $\square$
