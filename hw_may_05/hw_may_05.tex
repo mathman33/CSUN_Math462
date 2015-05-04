@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\textwidth=17cm \oddsidemargin=-0.9cm \evensidemargin=-0.9cm
+\textheight=23.7cm \topmargin=-1.7cm
+
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{moreverb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{array}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{alltt}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{bigints}
+\allowdisplaybreaks
+
+\newcommand{\suchthat}{\, \mid \,}
+\renewcommand{\theenumi}{\alph{enumi}}
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+\setcounter{section}{-1}
+
+\title{\bf HW: Section 9A \#3, 4}
+\author{\bf Sam Fleischer}
+\date{\bf May 5, 2015}
+
+\begin{document}
+{\bf MATH 462 \hfill Advanced Linear Algebra \ \ \ \ \ \hfill Spring 2015} 
+
+{\let\newpage\relax\maketitle}
+
+\section*{9A}
+\subsection*{\#3}
+{\it Suppose $V$ is a real vector space and $v_1, \dots, v_m \in V$.  Prove that $(v_1, \dots, v_m)$ is linearly independent in $V_{\mathbb{C}}$ if and only if $(v_1, \dots, v_m)$ is linearly independent in $V$.} \\
+
+\noindent ``$\Longrightarrow$'' \\
+Suppose $\pi = (v_1, \dots, v_m)$ is linearly independent in $V_{\mathbb{C}}$.  Then $\sum_{k = 1}^{m}(a_k + ib_k)v_k = 0 \implies a_k = b_k = 0$ for $k = 1, \dots, m$.  Then suppose $\sum_{k = 1}^ma_kv_k = 0$.  But $\sum_{k = 1}^ma_kv_k = \sum_{k = 1}^m(a_k + i(0))v_k$.  Then by our assumption, $a_k + i(0) = 0$ for $k = 1, \dots, m$, which implies $a_k = 0$ for all $k = 1, \dots, m$.  Thus $\pi$ is linearly independent in $V$. \\
+
+\noindent ``$\Longleftarrow$'' \\
+Suppose $\pi$ is linearly independent in $V$.  Then $\sum_{k = 1}^ma_kv_k = 0 \implies a_k = 0$ for all $k = 1, \dots, m$.  Then suppose $\sum_{k = 1}^m(a_k + ib_k)v_k = 0 + i(0)$.  Then $\sum_{k = 1}^ma_kv_k = \sum_{k = 1}^mb_kv_k = 0$.  Then by our assumption, $a_k = b_k = 0$ for $k = 1, \dots, m$.  Then $(a_k +ib_k) = 0$ for $k = 1, \dots, m$.  Thus $\pi$ is linearly independent in $V_{\mathbb{C}}$. \\
+
+\noindent Thus $\pi$ is linearly independent in $V$ if and only if $\pi$ is linearly independent in $V_{\mathbb{C}}$. \hfill $\square$
+
+\subsection*{\#4}
+{\it Suppose $V$ is a real vector space and $v_1, \dots, v_m \in V$.  Prove that $(v_1, \dots, v_m)$ spans $V_{\mathbb{C}}$ if and only if $(v_1, \dots, v_m)$ spans $V$.} \\
+
+\noindent ``$\Longrightarrow$'' \\
+Suppose $\pi = (v_1, \dots, v_m)$ spans $V_{\mathbb{C}}$.  Then $\forall v_{\mathbb{C}} \in V_{\mathbb{C}}$, $\exists (a_1 + ib_1), \dots, (a_m + ib_m) \in \mathbb{C}$ such that $v_{\mathbb{C}} = \sum_{k = 1}^m(a_k + ib_k)v_k$. Then let $v \in V$, and consider $v + i(0) \in V_{\mathbb{C}}$.  By our assumption, $\exists (a_1 + ib_1), \dots, (a_m + ib_m) \in \mathbb{C}$ such that $v + i(0) = \sum_{k = 1}^m(a_k + ib_k)v_k$.  Then $v = \sum_{k = 1}^ma_kv_k$ (and $0 = \sum_{k = 1}^mb_kv_k$).  Thus $\pi$ spans $V$. \\
+
+\noindent ``$\Longleftarrow$'' \\
+Suppose $\pi$ spans $V$.  Then $\forall v \in V$, $\exists a_1, \dots, a_m \in \mathbb{R}$ such that $v = \sum_{k = 1}^ma_kv_k$. Then let $v_{\mathbb{C}} \in V_{\mathbb{C}}$, and note $v_{\mathbb{C}} = v_{\mathbb{R}} + iv_{\mathbb{I}}$ for some $v_{\mathbb{R}}, v_{\mathbb{I}} \in V$.  By our assumption, $\exists a_1, \dots, a_m, b_1, \dots, b_m \in \mathbb{R}$ such that $v_{\mathbb{R}} = \sum_{k = 1}^ma_kv_k$ and $v_{\mathbb{I}} = \sum_{k = 1}^mb_kv_k$.  Then $v_{\mathbb{C}} = \sum{k = 1}^ma_kv_k + i\sum{k = 1}^mb_kv_k = \sum_{k = 1}^m(a_k + ib_k)v_k$.  Thus $\pi$ spans $V_{\mathbb{C}}$. \\
+
+\noindent Thus $\pi$ spans $V$ if and only if $\pi$ spans $V_{\mathbb{C}}$. \hfill $\square$
+
+\end{document}
